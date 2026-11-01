@@ -14,6 +14,7 @@
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{longtable}
 \usepackage{array}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
@@ -449,26 +450,38 @@ because it is synthetic.}
 
 \section{\texttt{tests/} \textendash\ 177 tests}
 
-\begin{center}
-\begin{tabular}{@{}lp{8.1cm}@{}}
+\begingroup
+\setlength{\LTleft}{\fill}
+\setlength{\LTright}{\fill}
+\begin{longtable}{@{}lp{8.1cm}@{}}
 \toprule
 \textbf{File} & \textbf{What it covers} \\
 \midrule
-\code{oracle.py} & Not a test. The independent shapely oracle others use \\
-\code{plans.py} & Synthetic plan generators shared by several suites \\
-\code{conftest.py} & Sets \code{QT\_QPA\_PLATFORM=offscreen} before Qt imports \\
-\code{test\_known\_answers.py} & 14 hand-computable cases, arithmetic in each docstring \\
-\code{test\_oracle.py} & 46 tests comparing the solver to the polygon oracle \\
-\code{test\_properties.py} & Translation, rotation, ordering, reversal, scaling invariance \\
-\code{test\_takeoff.py} & Quantity arithmetic against textbook figures \\
-\code{test\_units.py} & 30 parse and format cases \\
-\code{test\_store.py} & Round trips, migrations, cascades, failed-save rollback \\
-\code{test\_ui.py} & The window driven headlessly \\
-\code{test\_layering.py} & Parses every module's AST; fails if Qt escapes \code{ui/} \\
-\code{test\_end\_to\_end.py} & Renders the sample PDF, calibrates, checks the scale \\
+\endfirsthead
+\multicolumn{2}{@{}l}{\small\itshape tests/, continued}\\[2pt]
+\toprule
+\textbf{File} & \textbf{What it covers} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{r@{}}{\small\itshape continued on the next page}\\
+\endfoot
 \bottomrule
-\end{tabular}
-\end{center}
+\endlastfoot
+\code{oracle.py} & Not a test. The independent shapely oracle the other suites use \\
+\code{plans.py} & Synthetic plan generators shared by several suites \\
+\code{conftest.py} & Sets \code{QT\_QPA\_PLATFORM=offscreen} before Qt is imported \\
+\code{test\_known\_answers.py} & 14 hand-computable cases, with the arithmetic written into each docstring \\
+\code{test\_oracle.py} & 46 tests comparing the solver against the polygon oracle \\
+\code{test\_properties.py} & Translation, rotation, wall ordering, vertex reversal and scaling invariance; fast path versus naive scan \\
+\code{test\_takeoff.py} & Quantity arithmetic against textbook estimating figures \\
+\code{test\_units.py} & 30 feet-and-inches parse and format cases \\
+\code{test\_store.py} & Round trips, migrations, cascade deletes, failed-save rollback \\
+\code{test\_ui.py} & The window driven headlessly on Qt's offscreen platform \\
+\code{test\_layering.py} & Parses every module's AST; fails if Qt escapes \code{ui/} or shapely reaches \code{src/} \\
+\code{test\_end\_to\_end.py} & Renders the sample PDF, calibrates off its printed dimension, and confirms the recovered scale is the 18.75 px/ft the drawing was generated at \\
+\end{longtable}
+\endgroup
 
 \subsection{The oracle, which is the point}
 
