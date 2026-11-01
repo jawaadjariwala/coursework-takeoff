@@ -1,5 +1,9 @@
 # Code tour
 
+> A typeset PDF version of this document, with the screenshots
+> embedded, builds from [`code-tour.tex`](code-tour.tex) with
+> `./build-tour.sh` (needs [tectonic](https://tectonic-typesetting.github.io)).
+
 A file-by-file walk through this repository: what each thing is, why it
 exists, and what to read first.
 
