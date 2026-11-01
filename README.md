@@ -238,7 +238,9 @@ tests/          177 tests, including the polygon oracle.
 The engine runs headless. That is what makes it testable in CI, benchmarkable
 in a loop, and drivable from the command line.
 
-Design decisions and their trade-offs are in [docs/DECISIONS.md](docs/DECISIONS.md).
+A file-by-file walk through the repository is in
+[docs/CODE-TOUR.md](docs/CODE-TOUR.md). Design decisions and their trade-offs
+are in [docs/DECISIONS.md](docs/DECISIONS.md).
 
 ---
 
